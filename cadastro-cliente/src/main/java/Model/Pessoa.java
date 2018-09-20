@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Pessoa implements Serializable{
+public class Pessoa implements Serializable, EntidadeBase{
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,6 +21,7 @@ public class Pessoa implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
