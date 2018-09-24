@@ -8,7 +8,7 @@
 	
 		<properties>
 		     <!--Firebird-->
-		     <property name="hibernate.connection.url" value="jdbc:firebirdsql:localhost/3050:C:/Projetos/curso-jpa-hibernate/DataBase/HIBERNATE.FDB"/>
+		     <property name="hibernate.connection.url" value="jdbc:firebirdsql:localhost/3050:D:/Projetos/GitHub/curso-jpa-hibernate/DataBase/HIBERNATE.FDB"/>
 		     <property name="hibernate.connection.driver_class" value="org.firebirdsql.jdbc.FBDriver"/>
 		     <property name="hibernate.connection.username" value="SYSDBA"/>
 		     <property name="hibernate.connection.password" value="masterkey"/>

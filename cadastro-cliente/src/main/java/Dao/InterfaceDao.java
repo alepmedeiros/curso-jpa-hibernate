@@ -7,7 +7,7 @@ public interface InterfaceDao<T> {
 
 	//CRUD
 	public void save(T t);
-	public T getList(Serializable id);
+	public T getList(Class<T> clazz, Serializable id);
 	public void update(T t);
 	public void delete(T t);
 	
