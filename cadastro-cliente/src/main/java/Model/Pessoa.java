@@ -40,7 +40,7 @@ public class Pessoa implements Serializable {
 	@Enumerated(EnumType.ORDINAL)
 	private Genero genero;
 	
-	@Column(nullable=false, columnDefinition = "Integer default 1")
+	@Column(nullable=false, columnDefinition = "Integer default 1", insertable = false)
 	@Enumerated(EnumType.ORDINAL)
 	private TipoPessoa tipo;
 	

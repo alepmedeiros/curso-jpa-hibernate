@@ -1,7 +1,6 @@
 package Dao;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -33,10 +32,8 @@ public class NvGenericDao<T> implements NvInterfaceDao<T>{
 	}
 
 	@Override
-	public void atualizar(T t, Serializable id) {
-		/*
-		 T objContext = em.(classe,id);
-		 */
+	public void atualizar(Serializable id) {
+		T t = em.find(classe, id);
 		em.getTransaction().begin();
 		em.merge(t);
 		em.getTransaction().commit();
