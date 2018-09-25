@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -15,8 +17,8 @@ public class Endereco implements Serializable{
 	private static final long serialVersionUID = -1984883711831337704L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceEndereco")
-	@SequenceGenerator(name = "sequenceEndereco", sequenceName = "id_endereco", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco_seq")
+	@SequenceGenerator(name = "endereco_seq", sequenceName = "id_endereco", initialValue = 1, allocationSize=1)
 	private Integer id;
 	
 	@Column(length = 100)
@@ -36,6 +38,10 @@ public class Endereco implements Serializable{
 	
 	@Column(length = 2)
 	private String estado;
+	
+	@ManyToOne
+	@JoinColumn(name="id_pessoa")
+	private Pessoa pessoa;
 	
 	
 	public Endereco() {
@@ -98,29 +104,12 @@ public class Endereco implements Serializable{
 		this.estado = estado;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Endereco other = (Endereco) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 	
 }
