@@ -7,15 +7,11 @@ public enum Genero {
 	private int valor;
 	
 	Genero(int valor) {
-		this.setValor(valor);
+		this.valor = valor;
 	}
 
 	public int getValor() {
 		return valor;
-	}
-
-	public void setValor(int valor) {
-		this.valor = valor;
 	}
 	
 }

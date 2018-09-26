@@ -9,7 +9,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,8 +18,7 @@ public class Pessoa implements Serializable{
 	private static final long serialVersionUID = -8901121838786564263L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_pessoa")
-	@SequenceGenerator(name = "id_pessoa", sequenceName = "id_pessoa", allocationSize = 1, initialValue = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	
@@ -60,5 +58,13 @@ public class Pessoa implements Serializable{
 	}
 	public void setGenero(Genero genero) {
 		this.genero = genero;
-	}	
+	}
+	
+	@Override
+	public String toString() {
+		return "Pessoa [id=" + id + ", nome=" + nome + ", dtnasc=" + dtnasc + ", email=" + email + ", genero=" + genero
+				+ "]";
+	}
+	
+	
 }
