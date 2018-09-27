@@ -10,6 +10,7 @@ public interface InterfaceDao<T> {
 	//public void delete(Serializable id);
 	//public T select(Serializable id);
 	
+	public void salvar(T t);
 	public void adicionar(T t);
 	public void atualizar(T t);
 	public void apagar(final Serializable id);

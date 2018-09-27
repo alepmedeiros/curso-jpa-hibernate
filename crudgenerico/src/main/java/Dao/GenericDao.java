@@ -48,7 +48,7 @@ public class GenericDao<T> implements InterfaceDao<T> {
 			em.remove(t);
 			em.getTransaction().commit();
 		} catch (Exception e) {
-			e.getStackTrace();
+			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
 	}
@@ -67,6 +67,19 @@ public class GenericDao<T> implements InterfaceDao<T> {
 	@Override
 	public void fechar() {
 		em.close();	
+	}
+
+	@Override
+	public void salvar(T t) {
+		try {
+			em.getTransaction().begin();
+			em.merge(t);
+			em.getTransaction().commit();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			em.getTransaction().rollback();
+		}		
 	}
 
 	

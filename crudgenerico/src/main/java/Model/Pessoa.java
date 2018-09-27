@@ -29,6 +29,18 @@ public class Pessoa implements Serializable{
 	@Enumerated(EnumType.ORDINAL)
 	private Genero genero;
 	
+	public Pessoa() {
+		// TODO Auto-generated constructor stub
+	}
+		
+	public Pessoa(String nome, Date dtnasc, String email, Genero genero) {
+		super();
+		this.nome = nome;
+		this.dtnasc = dtnasc;
+		this.email = email;
+		this.genero = genero;
+	}
+
 	public Long getId() {
 		return id;
 	}

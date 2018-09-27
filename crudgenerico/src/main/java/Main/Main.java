@@ -13,7 +13,7 @@ import Model.Pessoa;
 public class Main {
 
 	public static void main(String[] args) throws ParseException {
-		crudoGenerico();
+		salvarDados();
 	}
 	
 	@SuppressWarnings("unused")
@@ -41,6 +41,16 @@ public class Main {
 		
 		dao.fechar();
 		
+	}
+	
+	
+	@SuppressWarnings("unused")
+	private static void salvarDados() {
+		InterfaceDao<Pessoa> dao = new GenericDao<Pessoa>(Pessoa.class);
+		Pessoa pessoa = dao.buscarPorId(3L);
+		pessoa.setNome("NOVO MERGE");
+		dao.salvar(pessoa);
+		dao.fechar();
 	}
 	
 	@SuppressWarnings("unused")

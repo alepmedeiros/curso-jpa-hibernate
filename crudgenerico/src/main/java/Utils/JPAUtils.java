@@ -9,10 +9,7 @@ public class JPAUtils {
 	private static EntityManagerFactory emf = null;
 	
 	public static EntityManager getEm() {
-		if (emf == null) {
-			emf = Persistence.createEntityManagerFactory("crudgenerico");
-		}
+		emf = Persistence.createEntityManagerFactory("crudgenerico");
 		return emf.createEntityManager();
-	}
-	
+	}	
 }
