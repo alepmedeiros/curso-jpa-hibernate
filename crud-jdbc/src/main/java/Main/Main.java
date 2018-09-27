@@ -1,12 +1,16 @@
 package Main;
 
+import java.util.List;
+
 import Dao.PessoaDao;
 import Entity.Pessoa;
 
 public class Main {
 
 	public static void main(String[] args) {
-		atualizar();
+		//List<Pessoa> lista = selecionaPorNome("Al");
+		//System.out.println(lista);
+		PessoaDao.selectMetaData();
 	}
 	
 	public static void inserir() {
@@ -23,6 +27,14 @@ public class Main {
 		Pessoa pessoa = new Pessoa();
 		pessoa.setId(1);
 		PessoaDao.delete(pessoa);
+	}
+	
+	public static List<Pessoa> selecionaTodo() {
+		return PessoaDao.selectAll();
+	}
+	
+	public static List<Pessoa> selecionaPorNome(String nome) {
+		return PessoaDao.selectByName(nome);
 	}
 
 }
