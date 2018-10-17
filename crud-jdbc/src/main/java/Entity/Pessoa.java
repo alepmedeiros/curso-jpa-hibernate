@@ -26,6 +26,10 @@ public class Pessoa {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "Pessoa [id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", email=" + email + "]";
+	}
 
 	public Integer getId() {
 		return id;
